@@ -20,7 +20,7 @@ void push_stack(int x, int y)
 	}
 	else 
 	{
-		printf("\nError stack\n");
+		printf("\nError push stack\n");
 		exit(1);
 	}
 }
@@ -35,7 +35,7 @@ Point pop_stack()
 	}
 	else
 	{
-		printf("\nError stack\n");
+		printf("\nError pop stack\n");
 		exit(1);
 	}
 }
@@ -48,7 +48,7 @@ Point peek_stack()
 	}
 	else
 	{
-		printf("\nError stack\n");
+		printf("\nError peek stack\n");
 		exit(1);
 	}
 }
