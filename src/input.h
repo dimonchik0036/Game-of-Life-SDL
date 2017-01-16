@@ -10,6 +10,8 @@
 #define MAX_KEYS 323
 #define MAX_MOUSE_KEYS 2
 
+#define BOOST_SPEED 2
+
 /* Инициализирует обработчик нажатий */
 void init_keys_state();
 
@@ -27,3 +29,5 @@ void set_coordinates(int x, int y);
 Point get_coordinates();
 
 void check_keys(enum ProgramState *state, int keycode);
+
+int get_speed();

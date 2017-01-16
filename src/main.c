@@ -139,7 +139,7 @@ static void resource_init(void)
 
 	load_images();
 
-	fps_init(60);
+	fps_init(200);
 }
 
 static void clean_up(void)

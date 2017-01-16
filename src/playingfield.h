@@ -24,3 +24,5 @@ void recolor_block_playing_field(enum Color color, int x, int y);
 void created_playing_field();
 
 void clear_playing_field();
+
+bool (* get_playing_field())[Y_FIELD_SIZE];

@@ -14,7 +14,7 @@ void push_stack(int x, int y)
 	if (stack.size <  MAX_SIZE_STACK)
 	{
 		stack.stack[stack.size].x = x;
-		stack.stack[stack.size].x = y;
+		stack.stack[stack.size].y = y;
 
 		++stack.size;
 	}

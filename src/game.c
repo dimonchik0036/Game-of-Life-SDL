@@ -5,6 +5,7 @@
 #include "main.h"
 #include "playingfield.h"
 #include "stack.h"
+#include "life.h"
 
 
 void game_tick(Game *game)
@@ -16,7 +17,7 @@ void game_tick(Game *game)
 		break;
 
 	case GamePlayState:
-
+		life_process();
 
 		break;
 
@@ -33,7 +34,9 @@ void game_render(Game *game)
 		break;
 
 	case GamePlayState:
-		
+		life_render();
+		SDL_Delay(get_speed());
+
 		break;
 
 	case GameEndState:
@@ -50,4 +53,6 @@ void game_init(Game *game)
 	init_stack();
 
 	draw_background();
+
+	game->gameState = GamePlayState;
 }

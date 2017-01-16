@@ -1,4 +1,5 @@
 #include "input.h"
+#include "life.h"
 
 
 static bool keysHeld[MAX_KEYS];
@@ -6,8 +7,14 @@ static bool keysHeld[MAX_KEYS];
 static int lastXCoordinates = 0;
 static int lastYCoordinates = 0;
 
+static int speed = 50;
+
 
 static void check_keycode(int keycode);
+
+static void speed_up();
+
+static void speed_down();
 
 
 void init_keys_state()
@@ -80,13 +87,13 @@ void check_keys(ProgramState *state, int keycode)
 	case Play:
 		if (SDLK_SPACE == keycode)
 		{
-			*state = Pause;
+			*state = Begin;
 
 			break;
 		}
 
 		break;
-	case Pause:
+	/*case Pause:
 		if (SDLK_SPACE == keycode)
 		{
 			*state = Play;
@@ -101,6 +108,34 @@ void check_keys(ProgramState *state, int keycode)
 			break;
 		}
 
-		break;
+		break;*/
 	}
+
+	if (SDLK_KP_MINUS == keycode)
+	{
+		speed_down();
+	}
+
+	if (SDLK_KP_PLUS == keycode)
+	{
+		speed_up();
+	}
+}
+
+int get_speed()
+{
+	return speed;
+}
+
+static void speed_up()
+{
+	if (speed - BOOST_SPEED >= 0)
+	{
+		speed -= BOOST_SPEED;
+	}
+}
+
+static void speed_down()
+{
+	speed += BOOST_SPEED;
 }

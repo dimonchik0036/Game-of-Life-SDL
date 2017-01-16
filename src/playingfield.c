@@ -111,3 +111,8 @@ void created_playing_field()
 		return;
 	}
 }
+
+bool (* get_playing_field())[X_FIELD_SIZE]
+{
+	return playingField;
+}
