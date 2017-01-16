@@ -3,6 +3,9 @@
 
 static bool keysHeld[MAX_KEYS];
 
+static int lastXCoordinates = 0;
+static int lastYCoordinates = 0;
+
 
 static void check_keycode(int keycode);
 
@@ -36,9 +39,22 @@ bool key_held(int keycode)
 
 static void check_keycode(int keycode)
 {
-	if (keycode >= MAX_KEYS)
+	if (keycode >= MAX_KEYS || keycode < 0)
 	{
 		printf("Keycode %d is out of range.\nForce quit.\n", keycode);
 		exit(1);
 	}
+}
+
+void set_coordinates(int x, int y)
+{
+	lastXCoordinates = x;
+	lastYCoordinates = y;
+
+	printf("x: %d y: %d\n", x, y);
+}
+
+Point get_coordinates()
+{
+	return (Point) { lastXCoordinates, lastYCoordinates };
 }

@@ -9,6 +9,7 @@
 #include "fpsmanager.h"
 #include "input.h"
 #include "game.h"
+#include "playingfield.h"
 
 /* Иницализация всех ресурсов */
 static void resource_init(void);
@@ -65,6 +66,7 @@ static void internal_tick(void)
 	switch (state)
 	{
 	case Begin:
+		created_playing_field();
 
 		break;
 	case Play:
@@ -108,8 +110,16 @@ static void process_events(void)
 			gameRunning = false;
 
 			break;
+		case SDL_MOUSEBUTTONDOWN:
+			handle_keydown(event.button.button);
+
+			break;
 		case SDL_KEYDOWN:
 			handle_keydown(event.key.keysym.sym);
+
+			break;
+		case SDL_MOUSEBUTTONUP:
+			handle_keyup(event.button.button);
 
 			break;
 		case SDL_KEYUP:
@@ -117,6 +127,8 @@ static void process_events(void)
 
 			break;
 		}
+
+		set_coordinates(event.motion.x, event.motion.y);
 	}
 }
 
