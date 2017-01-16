@@ -116,3 +116,38 @@ bool (* get_playing_field())[X_FIELD_SIZE]
 {
 	return playingField;
 }
+
+void create_base_field(int number)
+{
+	switch (number)
+	{
+	case 1:
+		for (int x = 0; x < X_FIELD_SIZE; ++x)
+		{
+			recolor_block_playing_field(BlockColor, x, 0);
+			recolor_block_playing_field(BlockColor, x, Y_FIELD_SIZE - 1);
+		}
+
+		for (int y = 1; y < Y_FIELD_SIZE - 1; ++y)
+		{
+			recolor_block_playing_field(BlockColor, 0, y);
+			recolor_block_playing_field(BlockColor, X_FIELD_SIZE - 1, y);
+		}
+
+		break;
+	case 2:
+		for (int x = 1; x < X_FIELD_SIZE - 1; ++x)
+		{
+			recolor_block_playing_field(BlockColor, x, 1);
+			recolor_block_playing_field(BlockColor, x, Y_FIELD_SIZE - 2);
+		}
+
+		for (int y = 2; y < Y_FIELD_SIZE - 2; ++y)
+		{
+			recolor_block_playing_field(BlockColor, 1, y);
+			recolor_block_playing_field(BlockColor, X_FIELD_SIZE - 2, y);
+		}
+
+		break;
+	}
+}

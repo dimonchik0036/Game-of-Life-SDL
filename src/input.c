@@ -83,6 +83,20 @@ void check_keys(ProgramState *state, int keycode)
 			break;
 		}
 
+		if (SDLK_1 == keycode)
+		{
+			create_base_field(1);
+
+			break;
+		}
+
+		if (SDLK_2 == keycode)
+		{
+			create_base_field(2);
+
+			break;
+		}
+
 		break;
 	case Play:
 		if (SDLK_SPACE == keycode)
