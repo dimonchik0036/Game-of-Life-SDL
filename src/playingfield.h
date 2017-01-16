@@ -2,6 +2,7 @@
 
 #include "renderer.h"
 #include "input.h"
+#include "stack.h"
 
 
 #define X_FIELD_SIZE 63

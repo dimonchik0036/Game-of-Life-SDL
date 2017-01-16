@@ -2,7 +2,6 @@
 #include <stdbool.h>
 
 
-
 static bool playingField[Y_FIELD_SIZE][X_FIELD_SIZE];
 
 

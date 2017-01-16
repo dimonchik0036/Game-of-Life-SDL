@@ -4,6 +4,7 @@
 #include "input.h"
 #include "main.h"
 #include "playingfield.h"
+#include "stack.h"
 
 
 void game_tick(Game *game)
@@ -43,6 +44,10 @@ void game_render(Game *game)
 void game_init(Game *game)
 {
 	init_playing_field();
+
 	init_keys_state();
+
+	init_stack();
+
 	draw_background();
 }
