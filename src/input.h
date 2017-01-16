@@ -3,6 +3,8 @@
 #include "SDL.h"
 #include <stdbool.h>
 #include "renderer.h"
+#include "main.h"
+#include "playingfield.h"
 
 
 #define MAX_KEYS 323
@@ -23,3 +25,5 @@ bool key_held(int keycode);
 void set_coordinates(int x, int y);
 
 Point get_coordinates();
+
+void check_keys(enum ProgramState *state, int keycode);

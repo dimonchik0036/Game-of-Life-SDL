@@ -50,11 +50,57 @@ void set_coordinates(int x, int y)
 {
 	lastXCoordinates = x;
 	lastYCoordinates = y;
-
-	printf("x: %d y: %d\n", x, y);
 }
 
 Point get_coordinates()
 {
 	return (Point) { lastXCoordinates, lastYCoordinates };
+}
+
+void check_keys(ProgramState *state, int keycode)
+{
+	switch (*state)
+	{
+	case Begin:
+		if (SDLK_SPACE == keycode)
+		{
+			*state = Play;
+
+			break;
+		}
+
+		if (SDLK_ESCAPE == keycode)
+		{
+			clear_playing_field();
+
+			break;
+		}
+
+		break;
+	case Play:
+		if (SDLK_SPACE == keycode)
+		{
+			*state = Pause;
+
+			break;
+		}
+
+		break;
+	case Pause:
+		if (SDLK_SPACE == keycode)
+		{
+			*state = Play;
+
+			break;
+		}
+
+		if (SDLK_ESCAPE == keycode)
+		{
+			*state = Begin;
+
+			break;
+		}
+
+		break;
+	}
 }

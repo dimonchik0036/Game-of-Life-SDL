@@ -117,6 +117,7 @@ static void process_events(void)
 		case SDL_KEYDOWN:
 			handle_keydown(event.key.keysym.sym);
 
+			check_keys(&state, event.key.keysym.sym);
 			break;
 		case SDL_MOUSEBUTTONUP:
 			handle_keyup(event.button.button);
