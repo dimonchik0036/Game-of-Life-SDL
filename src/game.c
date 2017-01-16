@@ -3,6 +3,7 @@
 #include "renderer.h"
 #include "input.h"
 #include "main.h"
+#include "playingfield.h"
 
 
 void game_tick(Game *game)
@@ -41,5 +42,7 @@ void game_render(Game *game)
 
 void game_init(Game *game)
 {
+	init_playing_field();
+	init_keys_state();
 	draw_background();
 }
